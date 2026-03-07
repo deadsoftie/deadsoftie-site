@@ -173,6 +173,110 @@ footer {
   }
 }
 
+// ─── Home Hero ───────────────────────────────────────────────────────
+.home-hero {
+  padding: 3rem 0 2.75rem;
+  border-bottom: 1px solid $border;
+
+  &-inner {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+
+    @media (max-width: 599px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &-avatar {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+    border: 2px solid rgba(129, 140, 248, 0.4);
+    box-shadow:
+      0 0 0 5px rgba(129, 140, 248, 0.07),
+      0 0 25px rgba(129, 140, 248, 0.12);
+  }
+
+  &-name {
+    font-family: $font-display;
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.2rem;
+    color: $text;
+    line-height: 1.2;
+  }
+
+  &-handle {
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $accent;
+    opacity: 0.75;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  &-tagline {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $text-muted;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.9rem;
+
+    &::before {
+      content: '> ';
+      color: $accent;
+      opacity: 0.55;
+    }
+  }
+
+  &-bio {
+    font-family: $font-body;
+    font-size: 0.9rem;
+    color: $text-muted;
+    line-height: 1.75;
+    margin: 0 0 1rem;
+    max-width: 540px;
+
+    @media (max-width: 599px) {
+      max-width: 100%;
+    }
+  }
+
+  &-link {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    color: $accent;
+    letter-spacing: 0.05em;
+    @include transition(opacity 0.2s ease);
+
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+      text-decoration: none;
+    }
+  }
+}
+
+.home-posts-header {
+  padding: 2rem 0 0;
+
+  span {
+    font-family: $font-mono;
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $text-light;
+  }
+}
+
 // ─── About Page ───────────────────────────────────────────────────────
 .about {
   padding: 3.5rem 0 2rem;

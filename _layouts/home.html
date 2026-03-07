@@ -2,6 +2,25 @@
 layout: default
 ---
 
+{% if paginator.page == 1 %}
+<div class="home-hero">
+  <div class="home-hero-inner">
+    <img class="home-hero-avatar" src="/assets/ProfilePicture_v2_centered.png" alt="Rahul Nair" />
+    <div class="home-hero-text">
+      <h1 class="home-hero-name">Rahul Nair</h1>
+      <span class="home-hero-handle">@deadsoftie</span>
+      <p class="home-hero-tagline">game engine dev · researcher · 3d artist · grad student</p>
+      <p class="home-hero-bio">Game engine developer and researcher at DigiPen Institute of Technology. Building a custom C++ engine from scratch while exploring the intersection of technology, systems programming, and interactive media.</p>
+      <a href="{{ '/about' | prepend: site.baseurl }}" class="home-hero-link">About me &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="home-posts-header">
+  <span>Writing</span>
+</div>
+{% endif %}
+
 <div class="catalogue">
   {% for post in site.posts %}
     {% if post.sticky %}
