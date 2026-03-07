@@ -1,13 +1,20 @@
 .catalogue {
   &-item {
-    border-bottom: 1px solid $grey-2;
-    color: $default-color;
+    border-bottom: 1px solid $border;
+    color: $text;
     display: block;
-    padding: 2rem 0;
+    padding: 2.25rem 0;
+    @include transition(background 0.2s ease);
 
     &:hover .catalogue-line,
     &:focus .catalogue-line {
       width: 5rem;
+      border-color: $accent;
+    }
+
+    &:hover .catalogue-title,
+    &:focus .catalogue-title {
+      color: $accent;
     }
 
     &:last-child {
@@ -16,29 +23,35 @@
   }
 
   &-pinned {
-    color: $default-tint;
-    font-family: $serif-secondary;
-    letter-spacing: .5px;
+    color: $accent;
+    font-family: $font-body;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
   }
 
   &-time {
-    color: $default-tint;
-    font-family: $serif-secondary;
-    letter-spacing: .5px;
+    color: $text-muted;
+    font-family: $font-mono;
+    letter-spacing: 0.02em;
+    font-size: 0.78rem;
   }
 
   &-title {
-    color: $default-shade;
+    color: $text;
     display: block;
-    font-family: $sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin: .5rem 0;
+    font-family: $font-display;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 600;
+    margin: 0.5rem 0;
+    @include transition(color 0.2s ease);
   }
 
   &-line {
-    @include transition(all .3s ease-out);
-    border-top: .2rem solid $default-shade;
+    @include transition(all 0.3s ease-out);
+    border-top: 2px solid $border;
     display: block;
     width: 2rem;
   }

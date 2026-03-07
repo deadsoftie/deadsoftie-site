@@ -2,26 +2,79 @@
 layout: default
 ---
 
+<div class="progress-bar-container"><div class="progress-bar__fill" id="progress-bar-fill"></div></div>
+
 <div class="post">
   <div class="post-info">
-    <span>Written by</span>
     {% if page.author %}
-        {{ page.author }}
+      {{ page.author }}
     {% else %}
-        {{ site.author.name }}
+      {{ site.author.name }}
     {% endif %}
 
     {% if page.date %}
-      <br>
-      <span>on&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      <span class="meta-sep">&middot;</span><time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
     {% endif %}
+
+    {% assign word_count = content | number_of_words %}
+    {% assign reading_time = word_count | divided_by: 200 %}
+    {% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
+    <span class="meta-sep">&middot;</span><span class="reading-time">{{ reading_time }} min read</span>
   </div>
 
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-line"></div>
 
-  {{ content }}
+  <div class="post-content">
+    {{ content }}
+  </div>
 </div>
+
+<!-- Related posts -->
+{% if site.posts.size > 1 %}
+  {% assign related = "" | split: "" %}
+  {% for post in site.posts %}
+    {% if post.url == page.url %}{% continue %}{% endif %}
+    {% if page.tags.size > 0 %}
+      {% for tag in page.tags %}
+        {% if post.tags contains tag %}
+          {% assign related = related | push: post %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if related.size >= 3 %}{% break %}{% endif %}
+  {% endfor %}
+
+  <!-- Backfill from recent posts if needed -->
+  {% if related.size < 3 %}
+    {% for post in site.posts %}
+      {% if post.url == page.url %}{% continue %}{% endif %}
+      {% assign already_included = false %}
+      {% for r in related %}
+        {% if r.url == post.url %}{% assign already_included = true %}{% break %}{% endif %}
+      {% endfor %}
+      {% unless already_included %}
+        {% assign related = related | push: post %}
+      {% endunless %}
+      {% if related.size >= 3 %}{% break %}{% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% if related.size > 0 %}
+  <div class="post-related">
+    <h3>More posts</h3>
+    <div class="post-related__grid">
+      {% for post in related %}
+      <a href="{{ post.url | prepend: site.baseurl }}" class="post-related__card">
+        <time datetime="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        <span>{{ post.title }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+{% endif %}
 
 {% if page.comments %}
   {% include disqus_comments.html %}

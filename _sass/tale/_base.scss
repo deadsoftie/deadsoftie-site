@@ -5,13 +5,13 @@
 
 html,
 body {
-  color: $default-color;
+  color: $text;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-family: $serif-primary;
+  font-family: $font-body;
   font-size: 14px;
   overflow-y: scroll;
 
@@ -22,6 +22,10 @@ html {
 
 body {
   -webkit-text-size-adjust: 100%;
+  background-color: $bg;
+  background-image: radial-gradient(circle, rgba(129, 140, 248, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
 }
 
 h1,
@@ -30,28 +34,45 @@ h3,
 h4,
 h5,
 h6 {
-  color: $default-shade;
-  font-family: $sans-serif;
-  line-height: normal;
+  color: $text;
+  font-family: $font-display;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 a {
-  color: $blue;
+  color: $accent;
   text-decoration: none;
+  @include transition(color 0.2s ease, opacity 0.2s ease);
+
+  &:hover,
+  &:focus {
+    color: lighten($accent, 12%);
+  }
 }
 
 blockquote {
-  border-left: .25rem solid $grey-2;
-  color: $grey-1;
-  margin: .8rem 0;
-  padding: .5rem 1rem;
+  border-left: 3px solid $accent;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  color: $text-muted;
+  margin: 2rem 0;
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-style: italic;
+  font-family: $font-body;
+  font-size: 1.05rem;
+  background: $surface;
+  border-radius: 0 4px 4px 0;
 
   p:last-child {
     margin-bottom: 0;
   }
 
-  @media (min-width: 600px) {
-    padding: 0 5rem 0 1.25rem;
+  @media (max-width: 599px) {
+    margin: 1.5rem 0;
   }
 }
 

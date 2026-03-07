@@ -1,7 +1,7 @@
 .container {
   margin: 0 auto;
-  max-width: 800px;
-  width: 80%;
+  max-width: 860px;
+  width: 90%;
 }
 
 main,
@@ -9,46 +9,55 @@ footer,
 .nav-container {
   display: block;
   margin: 0 auto;
-  max-width: 800px;
-  width: 80%;
+  max-width: 860px;
+  width: 90%;
 }
 
 .nav {
-  box-shadow: 0 2px 2px -2px $shadow-color;
-  overflow: auto;
+  background-color: $nav-bg;
+  border-bottom: 1px solid $border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   &-container {
-    margin: 1rem auto;
+    margin: 0 auto;
+    padding: 0.85rem 0;
     position: relative;
-    text-align: center;
   }
 
   &-title {
-    @include transition(all .2s ease-out);
-    color: $default-color;
+    @include transition(opacity 0.2s ease);
+    color: $accent;
     display: inline-block;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
     margin: 0;
-    padding-right: .2rem;
+    padding-right: 0.2rem;
 
     &:hover,
     &:focus {
-      opacity: .6;
+      color: $accent;
+      opacity: 0.8;
     }
   }
 
   ul {
     list-style-type: none;
-    margin: 1rem 0 0;
+    margin: 0;
     padding: 0;
     text-align: center;
   }
 
   li {
-    @include transition(all .2s ease-out);
-    color: $default-color;
+    @include transition(all 0.2s ease-out);
+    color: $text-muted;
     display: inline-block;
-    opacity: .6;
-    padding: 0 2rem 0 0;
+    padding: 0 1.75rem 0 0;
 
     &:last-child {
       padding-right: 0;
@@ -56,37 +65,75 @@ footer,
 
     &:hover,
     &:focus {
-      opacity: 1;
+      color: $text;
     }
   }
 
   a {
-    color: $default-color;
-    font-family: $sans-serif;
+    color: $text-muted;
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    @include transition(color 0.2s ease);
+
+    &:hover,
+    &:focus {
+      color: $text;
+    }
   }
 }
 
 @media (min-width: 600px) {
   .nav {
     &-container {
-      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     ul {
-      bottom: 0;
-      position: absolute;
-      right: 0;
+      margin: 0;
     }
   }
 }
 
 footer {
-  font-family: $serif-secondary;
-  padding: 2rem 0;
+  font-family: $font-body;
+  padding: 2.5rem 0 2rem;
   text-align: center;
+  border-top: 1px solid $border;
+  margin-top: 4rem;
+
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+
+    a {
+      color: $text-light;
+      display: flex;
+      align-items: center;
+      @include transition(color 0.2s ease, transform 0.2s ease);
+
+      &:hover,
+      &:focus {
+        color: $accent;
+        transform: translateY(-2px);
+      }
+
+      svg {
+        display: block;
+      }
+    }
+  }
 
   span {
-    color: $default-color;
-    font-size: .8rem;
+    color: $text-muted;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
   }
 }
