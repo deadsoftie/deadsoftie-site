@@ -46,6 +46,13 @@ footer,
     }
   }
 
+  // Wrapper for links + social icons on the right
+  &-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -57,7 +64,7 @@ footer,
     @include transition(all 0.2s ease-out);
     color: $text-muted;
     display: inline-block;
-    padding: 0 1.75rem 0 0;
+    padding: 0 1.5rem 0 0;
 
     &:last-child {
       padding-right: 0;
@@ -81,6 +88,34 @@ footer,
     &:hover,
     &:focus {
       color: $text;
+    }
+  }
+
+  &-socials {
+    display: none; // hidden on mobile — they're in the footer
+    align-items: center;
+    gap: 0.65rem;
+    border-left: 1px solid $border;
+    padding-left: 1rem;
+
+    a {
+      color: $text-light;
+      display: flex;
+      align-items: center;
+      font-size: 0; // hide any text nodes
+      text-transform: none;
+      letter-spacing: 0;
+      @include transition(color 0.2s ease, transform 0.15s ease);
+
+      &:hover,
+      &:focus {
+        color: $accent;
+        transform: translateY(-1px);
+      }
+    }
+
+    @media (min-width: 600px) {
+      display: flex;
     }
   }
 }
@@ -135,5 +170,124 @@ footer {
     color: $text-muted;
     font-size: 0.8rem;
     letter-spacing: 0.02em;
+  }
+}
+
+// ─── About Page ───────────────────────────────────────────────────────
+.about {
+  padding: 3.5rem 0 2rem;
+  max-width: 680px;
+  margin: 0 auto;
+
+  &-hero {
+    text-align: center;
+    padding-bottom: 2.5rem;
+  }
+
+  &-avatar {
+    margin: 0 auto 1.75rem;
+    width: fit-content;
+    position: relative;
+
+    img {
+      border-radius: 50%;
+      width: 118px;
+      height: 118px;
+      object-fit: cover;
+      display: block;
+      border: 2px solid rgba(129, 140, 248, 0.45);
+      box-shadow:
+        0 0 0 6px rgba(129, 140, 248, 0.07),
+        0 0 35px rgba(129, 140, 248, 0.14);
+    }
+  }
+
+  &-name {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.3rem;
+    color: $text;
+  }
+
+  &-handle {
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    color: $accent;
+    opacity: 0.8;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  &-tagline {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    color: $text-muted;
+    letter-spacing: 0.05em;
+    margin: 0 0 2rem;
+
+    &::before {
+      content: '> ';
+      color: $accent;
+      opacity: 0.55;
+    }
+  }
+
+  &-socials {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid $border;
+      border-radius: 100px;
+      color: $text-muted;
+      font-family: $font-mono;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      @include transition(border-color 0.2s ease, color 0.2s ease, background 0.2s ease);
+
+      &:hover,
+      &:focus {
+        border-color: $accent;
+        color: $accent;
+        background: $accent-glow;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-divider {
+    border: none;
+    border-top: 1px solid $border;
+    margin: 2.75rem 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 2.5rem;
+      height: 3px;
+      background: $accent;
+      border-radius: 2px;
+    }
+  }
+
+  &-content {
+    p {
+      line-height: 1.85;
+      color: $text;
+      margin-bottom: 1.25rem;
+    }
   }
 }
