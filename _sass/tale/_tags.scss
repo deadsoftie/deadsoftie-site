@@ -153,9 +153,9 @@
 
     &:hover,
     &:active {
-      border-color: rgba(129, 140, 248, 0.5);
+      border-color: rgba($accent, 0.5);
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(129, 140, 248, 0.08);
+      box-shadow: 0 4px 16px rgba($accent, 0.08);
       text-decoration: none;
 
       .tags-post-title {

@@ -1,9 +1,3 @@
-.container {
-  margin: 0 auto;
-  max-width: 860px;
-  width: 90%;
-}
-
 main,
 footer,
 .nav-container {
@@ -51,13 +45,6 @@ footer,
     }
   }
 
-  // Wrapper for links + social icons on the right
-  &-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
   ul {
     list-style-type: none;
     margin: 0;
@@ -96,33 +83,6 @@ footer,
     }
   }
 
-  &-socials {
-    display: none; // hidden on mobile — they're in the footer
-    align-items: center;
-    gap: 0.65rem;
-    border-left: 1px solid $border;
-    padding-left: 1rem;
-
-    a {
-      color: $text-light;
-      display: flex;
-      align-items: center;
-      font-size: 0; // hide any text nodes
-      text-transform: none;
-      letter-spacing: 0;
-      @include transition(color 0.2s ease, transform 0.15s ease);
-
-      &:hover,
-      &:focus {
-        color: $accent;
-        transform: translateY(-1px);
-      }
-    }
-
-    @media (min-width: 600px) {
-      display: flex;
-    }
-  }
 }
 
 @media (min-width: 600px) {
@@ -201,10 +161,10 @@ footer {
     object-fit: cover;
     flex-shrink: 0;
     display: block;
-    border: 2px solid rgba(129, 140, 248, 0.4);
+    border: 2px solid rgba($accent, 0.4);
     box-shadow:
-      0 0 0 5px rgba(129, 140, 248, 0.07),
-      0 0 25px rgba(129, 140, 248, 0.12);
+      0 0 0 5px rgba($accent, 0.07),
+      0 0 25px $accent-glow;
   }
 
   &-name {
@@ -418,9 +378,9 @@ footer {
 
   &:hover,
   &:focus {
-    border-color: rgba(129, 140, 248, 0.5);
+    border-color: rgba($accent, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(129, 140, 248, 0.08);
+    box-shadow: 0 6px 24px rgba($accent, 0.08);
     text-decoration: none;
     color: $text;
 
@@ -430,7 +390,7 @@ footer {
   // Wide card — spans full row, accent left border
   &--wide {
     grid-column: 1 / -1;
-    border-left: 3px solid rgba(129, 140, 248, 0.4);
+    border-left: 3px solid rgba($accent, 0.4);
     padding-left: 1.35rem;
 
     h2 {
@@ -444,8 +404,8 @@ footer {
 
   // Sticky / pinned card
   &--sticky {
-    border-color: rgba(129, 140, 248, 0.25);
-    background: rgba(129, 140, 248, 0.04);
+    border-color: rgba($accent, 0.25);
+    background: rgba($accent, 0.04);
   }
 
   time {
@@ -533,10 +493,10 @@ footer {
       height: 118px;
       object-fit: cover;
       display: block;
-      border: 2px solid rgba(129, 140, 248, 0.45);
+      border: 2px solid rgba($accent, 0.45);
       box-shadow:
-        0 0 0 6px rgba(129, 140, 248, 0.07),
-        0 0 35px rgba(129, 140, 248, 0.14);
+        0 0 0 6px rgba($accent, 0.07),
+        0 0 35px rgba($accent, 0.14);
     }
   }
 

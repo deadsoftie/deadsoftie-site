@@ -15,26 +15,15 @@ $code-bg:      #090c17 !default;
 $code-color:   #a78bfa !default;   // lighter violet for inline code
 $shadow-color: rgba(0, 0, 0, 0.5) !default;
 
-// ─── Legacy aliases (keep _code.scss, _syntax.scss, _tags.scss compiling) ──
-$default-color:  $text !default;
-$default-shade:  $text !default;
-$default-tint:   $text-muted !default;
-$grey-1:         $text-muted !default;
-$grey-2:         $border !default;
-$grey-3:         $surface !default;
-$white:          $bg !default;
-$blue:           $accent !default;
+// ─── Legacy aliases (kept for compatibility) ─────────────────────────
+$default-shade:  $text !default;   // used in _404.scss
 
 // ─── Typography ──────────────────────────────────────────────────────
 $font-display:  'Space Grotesk', 'Inter', system-ui, sans-serif !default;
 $font-body:     'Inter', system-ui, sans-serif !default;
 $font-mono:     'JetBrains Mono', 'SFMono-Regular', Menlo, monospace !default;
 
-// ─── Legacy font aliases ──────────────────────────────────────────────
-$serif-primary:   $font-body !default;
-$serif-secondary: $font-body !default;
-$sans-serif:      $font-display !default;
-$monospaced:      $font-mono !default;
+$monospaced:    $font-mono !default;   // used in _code.scss
 
 // ─── Mixins ──────────────────────────────────────────────────────────
 @mixin box-sizing($type: border-box) {

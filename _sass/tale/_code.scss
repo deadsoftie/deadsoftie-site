@@ -82,8 +82,8 @@ div.highlight {
 
     &:hover {
       color: $accent;
-      border-color: rgba(129, 140, 248, 0.5);
-      background: rgba(129, 140, 248, 0.06);
+      border-color: rgba($accent, 0.5);
+      background: rgba($accent, 0.06);
     }
 
     &--success {

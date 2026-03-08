@@ -257,11 +257,11 @@
     }
 
     tr:nth-child(even) td {
-      background: rgba(19, 24, 37, 0.6);
+      background: rgba($surface, 0.6);
     }
 
     tr:hover td {
-      background: rgba(129, 140, 248, 0.04);
+      background: rgba($accent, 0.04);
     }
   }
 
@@ -315,7 +315,7 @@
     &:focus {
       border-color: $accent;
       transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(129, 140, 248, 0.1);
+      box-shadow: 0 4px 20px rgba($accent, 0.1);
       color: $text;
       text-decoration: none;
     }
