@@ -255,6 +255,10 @@ footer {
     gap: 0.6rem;
     margin-bottom: 1rem;
 
+    @media (max-width: 599px) {
+      justify-content: center;
+    }
+
     a {
       display: inline-flex;
       align-items: center;
