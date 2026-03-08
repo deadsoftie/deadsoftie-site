@@ -2,6 +2,7 @@
 layout: post
 title:  "The Value of the Concept of Money"
 author: "deadsoftie"
+tags: [essay, philosophy]
 ---
 
 > This is a republish of my original post from Medium that I wanted easier access to on my blog.

@@ -8,7 +8,7 @@ code {
   border: 1px solid $border;
   border-radius: 4px;
   color: $code-color;
-  font-size: 85%;
+  font-size: 80%;
   padding: .2em .45em;
 }
 
@@ -24,14 +24,27 @@ pre code {
   padding: 0;
 }
 
-.highlight {
+div.highlight {
+  position: relative;
   background-color: $code-bg;
   border: 1px solid $border;
   border-radius: 6px;
-  line-height: 1.5;
-  margin: 0 0 1.25rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
   padding: 1.1rem 1.25rem;
-  overflow-x: auto;
+
+  // language label — optional, shown via data attribute if present
+  &[data-lang]::before {
+    content: attr(data-lang);
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $text-light;
+    margin-bottom: 0.65rem;
+  }
 
   pre {
     margin-bottom: 0;
@@ -46,5 +59,48 @@ pre code {
        -moz-user-select: none;
             user-select: none;
     font-size: 0.85em;
+    opacity: 0.5;
+  }
+
+  // Copy button — fades in on hover, always visible on touch devices
+  .copy-btn {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 4px;
+    color: $text-muted;
+    font-family: $font-mono;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+    opacity: 0;
+    @include transition(opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease, background 0.15s ease);
+
+    &:hover {
+      color: $accent;
+      border-color: rgba(129, 140, 248, 0.5);
+      background: rgba(129, 140, 248, 0.06);
+    }
+
+    &--success {
+      color: #98c379;
+      border-color: rgba(152, 195, 121, 0.4);
+      opacity: 1 !important;
+    }
+  }
+
+  &:hover .copy-btn {
+    opacity: 1;
+  }
+
+  // Always visible on touch/mobile
+  @media (hover: none) {
+    .copy-btn {
+      opacity: 0.6;
+    }
   }
 }

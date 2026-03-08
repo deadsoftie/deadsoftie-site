@@ -18,9 +18,10 @@
   <!-- RSS -->
   {% feed_meta %}
 
-  <!-- Reading progress bar (posts only) -->
+  <!-- Reading progress bar + copy buttons (posts only) -->
   {% if page.layout == 'post' %}
   <script src="{{ "/assets/js/reading-progress.js" | relative_url }}" defer></script>
+  <script src="{{ "/assets/js/copy-code.js" | relative_url }}" defer></script>
   {% endif %}
 
   <!-- Google Analytics-->

@@ -24,9 +24,10 @@
   &-info {
     color: $text-muted;
     font-family: $font-mono;
-    font-size: 0.78rem;
-    letter-spacing: 0.03em;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
     text-align: center;
+    margin-bottom: 0.5rem;
 
     span {
       font-style: normal;
@@ -35,7 +36,7 @@
     .meta-sep {
       font-style: normal;
       margin: 0 0.5em;
-      opacity: 0.4;
+      opacity: 0.35;
     }
 
     .reading-time {
@@ -46,11 +47,11 @@
   &-title {
     color: $text;
     font-family: $font-display;
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     line-height: 1.15;
-    margin: 1.25rem 0;
+    margin: 1rem 0;
     text-align: center;
   }
 
@@ -79,7 +80,7 @@
     margin: 0 0 1.2rem;
     text-align: left;
     color: $text;
-    line-height: 1.8;
+    line-height: 1.85;
   }
 
   a:hover {
@@ -96,7 +97,7 @@
     color: $text-muted;
     display: block;
     font-family: $font-body;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-style: normal;
     text-align: center;
     margin-top: -0.25rem;
@@ -131,9 +132,147 @@
   margin: 0 auto;
   line-height: 1.85;
 
-  h2, h3, h4 {
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
+  // ── Headings ──────────────────────────────────────────────────
+  h2 {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text;
+    margin: 2.75rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $border;
+    position: relative;
+    letter-spacing: -0.015em;
+
+    // Short accent underline
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 2.5rem;
+      height: 2px;
+      background: $accent;
+      border-radius: 1px;
+    }
+  }
+
+  h3 {
+    font-family: $font-display;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: lighten($accent, 8%);
+    margin: 2.25rem 0 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $text-muted;
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  // ── Lists ─────────────────────────────────────────────────────
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+
+    li {
+      margin-bottom: 0.4rem;
+      line-height: 1.8;
+      color: $text;
+    }
+
+    // Nested
+    ul, ol {
+      margin-top: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  ul li::marker {
+    color: $accent;
+    font-size: 0.85em;
+  }
+
+  ol li::marker {
+    color: $accent;
+    font-family: $font-mono;
+    font-size: 0.85em;
+  }
+
+  // ── Horizontal Rule ───────────────────────────────────────────
+  hr {
+    border: none;
+    border-top: 1px solid $border;
+    margin: 2.75rem 0;
+    position: relative;
+
+    &::after {
+      content: '· · ·';
+      position: absolute;
+      top: -0.65em;
+      left: 50%;
+      transform: translateX(-50%);
+      background: $bg;
+      padding: 0 0.75rem;
+      color: $text-light;
+      font-size: 0.8rem;
+      letter-spacing: 0.5em;
+    }
+  }
+
+  // ── Tables ────────────────────────────────────────────────────
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    overflow-x: auto;
+    display: block;
+
+    th {
+      background: $surface;
+      border: 1px solid $border;
+      padding: 0.6rem 0.9rem;
+      text-align: left;
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $text-muted;
+      white-space: nowrap;
+    }
+
+    td {
+      border: 1px solid $border;
+      padding: 0.6rem 0.9rem;
+      color: $text;
+      line-height: 1.6;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(19, 24, 37, 0.6);
+    }
+
+    tr:hover td {
+      background: rgba(129, 140, 248, 0.04);
+    }
+  }
+
+  // ── Inline emphasis ───────────────────────────────────────────
+  strong {
+    color: $text;
+    font-weight: 600;
+  }
+
+  em {
+    color: inherit;
   }
 }
 

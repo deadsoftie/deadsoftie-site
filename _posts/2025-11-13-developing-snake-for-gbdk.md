@@ -2,6 +2,7 @@
 layout: post
 title:  "Developing Snake on GBDK-2020"
 author: "deadsoftie"
+tags: [gamedev, c]
 ---
 
 I have come to throughly enjoy my time at DigiPen as a grad student. Dipping my toes in several different areas of interest. One of those areas being developing games for retro consoles. Something about creating games with constraits spoke to me so when my friends and I founded the Retro Development Association at DigiPen the tagline we chose was, "Limitation breeds Creativity".

@@ -2,6 +2,7 @@
 layout: post
 title:  "When Time Becomes Meaningless"
 author: "deadsoftie"
+tags: [essay, philosophy]
 ---
 
 > This is a republish of my original post from Medium that I wanted easier access to on my blog.

@@ -277,6 +277,198 @@ footer {
   }
 }
 
+// ─── Mosaic Post Grid + Timeline ────────────────────────────────────────
+.mosaic-layout {
+  display: flex;
+  gap: 0;
+  margin-top: 1.25rem;
+  overflow: visible;
+}
+
+.timeline-rail {
+  width: 48px;
+  flex-shrink: 0;
+  position: relative;
+
+  // Vertical gradient line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    bottom: 0;
+    left: 23px;
+    width: 1px;
+    background: linear-gradient(to bottom,
+      $accent 0%,
+      $border 20%,
+      $border 85%,
+      transparent 100%
+    );
+  }
+
+  @media (max-width: 599px) {
+    display: none;
+  }
+}
+
+.mosaic {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.mosaic-year {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.25rem 0 0.4rem;
+  position: relative;
+
+  // Dot connector into the timeline rail
+  &::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $accent;
+    box-shadow: 0 0 0 3px $bg, 0 0 0 4px $accent;
+
+    @media (max-width: 599px) {
+      display: none;
+    }
+  }
+
+  span {
+    font-family: $font-mono;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $accent;
+    opacity: 0.7;
+  }
+
+  // Horizontal rule after the year label
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $border;
+  }
+}
+
+.mosaic-card {
+  display: flex;
+  flex-direction: column;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 1.15rem 1.25rem;
+  color: $text;
+  @include transition(border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease);
+
+  &:hover,
+  &:focus {
+    border-color: rgba(129, 140, 248, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(129, 140, 248, 0.08);
+    text-decoration: none;
+    color: $text;
+
+    h2 { color: $accent; }
+  }
+
+  // Wide card — spans full row, accent left border
+  &--wide {
+    grid-column: 1 / -1;
+    border-left: 3px solid rgba(129, 140, 248, 0.4);
+    padding-left: 1.35rem;
+
+    h2 {
+      font-size: 1.15rem;
+    }
+
+    .mosaic-excerpt {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  // Sticky / pinned card
+  &--sticky {
+    border-color: rgba(129, 140, 248, 0.25);
+    background: rgba(129, 140, 248, 0.04);
+  }
+
+  time {
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    color: $text-muted;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  h2 {
+    font-family: $font-display;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0 0 0.5rem;
+    color: $text;
+    @include transition(color 0.2s ease);
+  }
+}
+
+.mosaic-excerpt {
+  font-size: 0.8rem;
+  color: $text-muted;
+  line-height: 1.65;
+  margin: 0 0 0.65rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mosaic-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+
+  span {
+    font-family: $font-mono;
+    font-size: 0.62rem;
+    color: $text-light;
+    letter-spacing: 0.04em;
+
+    &::before {
+      content: '#';
+      color: $accent;
+      opacity: 0.5;
+    }
+  }
+}
+
+.mosaic-pin {
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $accent;
+  margin-bottom: 0.4rem;
+  opacity: 0.75;
+}
+
 // ─── About Page ───────────────────────────────────────────────────────
 .about {
   padding: 3.5rem 0 2rem;
