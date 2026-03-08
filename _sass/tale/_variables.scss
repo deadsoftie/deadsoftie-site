@@ -6,6 +6,9 @@ $text-muted:   #6e7891 !default;
 $text-light:   #3d4560 !default;
 $accent:       #818cf8 !default;   // indigo violet — crisp on dark
 $accent-glow:  rgba(129, 140, 248, 0.12) !default;
+$accent-dim:   #9da8fb !default;   // ~lighten($accent, 8%)  — used for h3
+$accent-light: #a8b2fc !default;   // ~lighten($accent, 12%) — used for link hover
+$accent-grad:  #b2bafd !default;   // ~lighten($accent, 15%) — used for gradient end
 $border:       #1e2440 !default;
 $nav-bg:       #0c0f1a !default;   // unified with bg (no jarring header)
 $code-bg:      #090c17 !default;

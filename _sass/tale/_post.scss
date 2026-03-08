@@ -12,7 +12,7 @@
 .progress-bar__fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, $accent, lighten($accent, 15%));
+  background: linear-gradient(90deg, $accent, $accent-grad);
   transition: width 0.1s linear;
   will-change: width;
 }
@@ -161,7 +161,7 @@
     font-family: $font-display;
     font-size: 1.15rem;
     font-weight: 600;
-    color: lighten($accent, 8%);
+    color: $accent-dim;
     margin: 2.25rem 0 0.75rem;
     letter-spacing: -0.01em;
   }
