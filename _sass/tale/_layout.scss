@@ -26,6 +26,11 @@ footer,
     margin: 0 auto;
     padding: 0.85rem 0;
     position: relative;
+    text-align: center;
+
+    @media (min-width: 600px) {
+      text-align: left;
+    }
   }
 
   &-title {
@@ -220,6 +225,10 @@ footer {
     opacity: 0.75;
     margin-bottom: 0.5rem;
     letter-spacing: 0.02em;
+
+    @media (max-width: 599px) {
+      text-align: center;
+    }
   }
 
   &-tagline {
